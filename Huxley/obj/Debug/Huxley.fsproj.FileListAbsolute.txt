@@ -1,0 +1,15 @@
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\Huxley.dll.config
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\Huxley.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\Huxley.pdb
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\FSharp.Core.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\Newtonsoft.Json.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Net.Http.Formatting.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Web.Http.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Web.Http.WebHost.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\Newtonsoft.Json.xml
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Net.Http.Formatting.xml
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Web.Http.xml
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\System.Web.Http.WebHost.xml
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\bin\FSharp.Core.xml
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\obj\Debug\Huxley.dll
+C:\Users\YT\Documents\Visual Studio 2013\Projects\Huxley\Huxley\obj\Debug\Huxley.pdb
