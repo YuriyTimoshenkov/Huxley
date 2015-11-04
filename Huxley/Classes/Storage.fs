@@ -15,8 +15,7 @@ type MemoryStorage(name) =
 
     interface IStorage with
         member this.Add key value =
-            let storage = storage <- storage.Add (key, value)
-            printf "Added item with key = '%s' and value = '%s'" key value 
+            storage <- storage.Add (key, value)
 
         member this.Get key =
             storage.[key]
