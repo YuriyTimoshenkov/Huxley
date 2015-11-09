@@ -116,9 +116,6 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
-	<Compile Include="Classes\Trees.fs" />
-    <Compile Include="Classes\Storage.fs" />
-    <Compile Include="Classes\StorageManager.fs" />
     <Compile Include="Global.asax.fs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -156,5 +153,12 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml.Linq.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Huxley.Core\Huxley.Core.fsproj">
+      <Name>Huxley.Core</Name>
+      <Project>{cfb4d826-31fe-420a-92f1-e36d6f807774}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
 </Project>

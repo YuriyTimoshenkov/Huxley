@@ -1,7 +1,7 @@
 ﻿namespace Huxley.Controllers
 
 open System.Web.Http
-open Huxley.StorageManager
+open Huxley.Core.StorageManager
 open Huxley
 
 [<RoutePrefix("api/db")>]

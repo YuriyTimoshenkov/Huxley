@@ -6,8 +6,8 @@ open System.Web
 open System.Web.Http
 open System.Web.Routing
 
-open Huxley.StorageManager
-open Huxley.Storage
+open Huxley.Core.StorageManager
+open Huxley.Core.Storage
 
 type HttpRoute = {
     id : RouteParameter }

@@ -1,4 +1,4 @@
-﻿namespace Huxley.Trees
+﻿namespace Huxley.Core.Trees
 
 module AVLTree =
 
@@ -72,6 +72,28 @@ module AVLTree =
             else
                 if key < x.Key then containsKey key l
                 else containsKey key r
+
+    let rec findPredecessor = function
+        | Empty -> Empty
+        | Node(_, l, _, Empty) as node when balanceFactor l = 0 -> node
+        | Node(_, Empty, _, Empty) as node -> node
+        | Node(_, l, x, r) -> findPredecessor r
+
+
+    let rec remove key = function
+        | Empty -> Empty
+        | Node(_, l, x, r) as node ->
+            if key = x.Key then 
+                let predecessor = findPredecessor node
+                match predecessor with
+                | Node(_, _, xp, _) -> createNode l xp r 
+                | Empty -> Empty
+            else
+                let l', r' = if key < x.Key then 
+                                   remove key l, r 
+                             else 
+                                   l, remove key r
+                createNode l' x r'
 
     let rec getValue key = function
         | Empty -> Option.None

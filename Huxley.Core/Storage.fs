@@ -1,6 +1,6 @@
-﻿namespace Huxley.Storage
+﻿namespace Huxley.Core.Storage
 
-open Huxley.Trees
+open Huxley.Core.Trees
 
 type IStorage =
     abstract member Add: string -> string -> unit
