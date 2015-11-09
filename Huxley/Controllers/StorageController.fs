@@ -41,6 +41,11 @@ type StorageController(storageManager: IStorageManager) =
         storageManager.GetAllStorages.[dbName].Remove key
         this.Ok key
 
+    [<Route("{dbName}/Get/{key}")>]
+    [<HttpGet()>]
+    member this.GetValue dbName key =
+        key |> storageManager.GetAllStorages.[dbName].Get |> this.Ok
+
     [<Route("{dbName}/GetContent")>]
     [<HttpGet()>]
     member this.GetDbContent dbName =

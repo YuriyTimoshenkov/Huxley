@@ -116,9 +116,10 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
-	<Compile Include="Classes\Storage.fs" />
+	<Compile Include="Classes\Trees.fs" />
+    <Compile Include="Classes\Storage.fs" />
     <Compile Include="Classes\StorageManager.fs" />
-	    <Compile Include="Global.asax.fs">
+    <Compile Include="Global.asax.fs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Controllers\StorageController.fs" />
