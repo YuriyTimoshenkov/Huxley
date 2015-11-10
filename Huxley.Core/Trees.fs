@@ -1,6 +1,7 @@
 ﻿namespace Huxley.Core.Trees
 
 module AVLTree =
+    open System
 
     type TreeNodeContent<'TKey, 'TValue> = {Key: 'TKey; Value: 'TValue }
 
@@ -102,4 +103,28 @@ module AVLTree =
             else
                 if key < x.Key then getValue key l
                 else getValue key r
+
+    let drawTree tree cellSize = 
+            let treeHeigh = height tree
+
+            //Fill empty canvas
+            let stringCanvas = [ for i in 1 ..treeHeigh  -> String.Empty ]
+            let updateListItem = fun list index newValue  -> List.mapi ( fun i item -> if i= index then item + newValue else item ) list
+
+            let rec drawTree drawContext vlevel hLevel x = 
+                match x with
+                | Empty -> drawContext
+                | Node(h, l, x, r) as node -> 
+                    drawTree 
+                                (drawTree 
+                                    (updateListItem drawContext vlevel (String.replicate (hLevel - drawContext.[vlevel].Length) " " + x.Key.ToString()))
+                                    (vlevel + 1)
+                                    (hLevel - ((pown 2 h - 2) / 2)) 
+                                    l) 
+                                (vlevel + 1)
+                                (hLevel + ((pown 2 h + 2) / 2) - 1) 
+                                r
+            
+            let callSize = 2
+            List.fold(fun state item -> state + item + Environment.NewLine) String.Empty (drawTree stringCanvas 0 ((pown 2 treeHeigh) * callSize) tree)
     

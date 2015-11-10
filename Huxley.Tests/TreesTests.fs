@@ -21,10 +21,17 @@ module TreesTests =
             let mutable tree = AVLTree.Empty
 
             tree <- AVLTree.insert 1 "1" tree 
+            tree <- AVLTree.insert 2 "2" tree
+            tree <- AVLTree.insert 3 "3" tree
+            tree <- AVLTree.insert 4 "4" tree
+            tree <- AVLTree.insert 5 "5" tree
+            tree <- AVLTree.insert 6 "6" tree
+            tree <- AVLTree.insert 7 "7" tree
+            tree <- AVLTree.insert 8 "8" tree
+            tree <- AVLTree.insert 9 "9" tree
+            tree <- AVLTree.insert 10 "10" tree
 
-            let length = match tree with 
-                            | AVLTree.Empty -> 0 
-                            | AVLTree.Node(h, _, _, _) -> h
 
-            let bb = length = 1
-            Assert.IsTrue(bb)
+            System.Diagnostics.Debug.WriteLine (AVLTree.drawTree tree 2)
+
+            Assert.IsTrue(1 = 1)
