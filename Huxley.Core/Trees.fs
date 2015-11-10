@@ -76,19 +76,44 @@ module AVLTree =
 
     let rec findPredecessor = function
         | Empty -> Empty
-        | Node(_, l, _, Empty) as node when balanceFactor l = 0 -> node
+        | Node(_, l, _, Empty) as node when height l = 1 -> node
         | Node(_, Empty, _, Empty) as node -> node
-        | Node(_, l, x, r) -> findPredecessor r
+        | Node(_, l, x, r) -> findPredecessor r 
+
+    let rec removePredecessor = function
+        | Empty -> Empty
+        | Node(_, Node(h,_,lv,_), _, Empty) as node when h = 1 -> createNode Empty lv Empty
+        | Node(_, Empty, _, Empty) -> Empty
+        | Node(_, l, x, r) -> createNode l x (removePredecessor r)
+
+    let rec findSuccessor = function
+        | Empty -> Empty
+        | Node(_, Empty, _, r) as node when height r = 1 -> node
+        | Node(_, Empty, _, Empty) as node -> node
+        | Node(_, l, x, r) -> findPredecessor l 
+
+    let rec removeSuccessor  = function
+        | Empty -> Empty
+        | Node(_, Empty, _, Node(h,_,rv,_)) as node when h = 1 -> createNode Empty rv Empty
+        | Node(_, Empty, _, Empty) -> Empty
+        | Node(_, l, x, r) -> createNode (removePredecessor l) x r
 
 
     let rec remove key = function
         | Empty -> Empty
         | Node(_, l, x, r) as node ->
             if key = x.Key then 
-                let predecessor = findPredecessor node
-                match predecessor with
-                | Node(_, _, xp, _) -> createNode l xp r 
-                | Empty -> Empty
+                if balanceFactor node >= 0
+                then 
+                    let predecessor = findPredecessor l
+                    match predecessor with
+                    | Node(_, _, xp, _) -> createNode (removePredecessor l) xp r 
+                    | Empty -> Empty
+                else
+                    let successor  = findSuccessor  r
+                    match successor with
+                    | Node(_, _, xp, _) -> createNode l xp (removeSuccessor  r) 
+                    | Empty -> Empty
             else
                 let l', r' = if key < x.Key then 
                                    remove key l, r 
@@ -126,5 +151,5 @@ module AVLTree =
                                 r
             
             let callSize = 2
-            List.fold(fun state item -> state + item + Environment.NewLine) String.Empty (drawTree stringCanvas 0 ((pown 2 treeHeigh) * callSize) tree)
+            List.fold(fun state item -> state + item + Environment.NewLine) String.Empty (drawTree stringCanvas 0 ((pown 2 treeHeigh) * callSize / 2) tree)
     

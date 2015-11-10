@@ -30,7 +30,13 @@ module TreesTests =
             tree <- AVLTree.insert 8 "8" tree
             tree <- AVLTree.insert 9 "9" tree
             tree <- AVLTree.insert 10 "10" tree
+            //tree <- AVLTree.insert 11 "11" tree
+            tree <- AVLTree.insert 12 "12" tree
+            tree <- AVLTree.insert 33 "33" tree
 
+            System.Diagnostics.Debug.WriteLine (AVLTree.drawTree tree 2)
+
+            tree <- AVLTree.remove 10 tree
 
             System.Diagnostics.Debug.WriteLine (AVLTree.drawTree tree 2)
 
